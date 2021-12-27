@@ -1,0 +1,216 @@
+﻿@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body {
+    font-family: 'Poppins', sans-serif;
+   /* background: #D2D6E7;*/
+    width: 100%;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #465987;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+    #sidebar.active {
+        margin-left: -250px;
+    }
+
+    #sidebar .sidebar-header {
+        padding: 20px;
+        background: #465987;
+    }
+
+    #sidebar ul.components {
+        padding: 20px 0px;
+        border-bottom: 1px solid #465987;
+    }
+
+    #sidebar ul p {
+        padding: 10px;
+        font-size: 0.9em;
+        display: block;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 0.9em;
+        display: block;
+         color: #fff;
+    }
+
+        #sidebar ul li a:hover {
+            color: #465987;
+            background: #fff;
+        }
+
+    #sidebar ul li.active > a,
+    a[aria-expanded="true"] {
+        color: #465987;
+        background: #D2D6E7;
+    }
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.8em !important;
+    padding-left: 30px !important;
+    background: #D2D6E7;
+    color: #465987;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+    ul.CTAs a {
+        text-align: center;
+        font-size: 0.9em !important;
+        display: block;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    background: #D2D6E7;
+}
+
+@media(maz-width:768px) {
+    #sidebar {
+        margin-left: -119px;
+    }
+
+        #sidebar.active {
+            margin-left: 0px;
+        }
+
+    #sidebarCollapse span {
+        display: none;
+    }
+    h4{
+        font-size:1.2rem;
+  
+    }
+}
+
+.sidebar-header h5 {
+    font-size: 18px;
+    font-weight: 100;
+    text-align: center;
+}
+
+.footer {
+    height: 1000px;
+    position: relative;
+}
+
+    .footer .footer-bottom {
+        text-align: center;
+        position: absolute;
+        height: 50px;
+        width: 100%;
+        bottom: 0px;
+        left: 0px;
+        padding-top: 20px;
+    }
+/*form css*/
+.navbar-laravel {
+    box-shadow: 0 2px 4px rgba(0,0,0,.04);
+}
+
+.navbar-brand, .nav-link, .my-form, .login-form {
+    font-family: Raleway, sans-serif;
+}
+
+.my-form {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+    .my-form .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+.login-form {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+    .login-form .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+  .login-form .card{
+    background-color:rgba(0,0,0,0.1);
+    text-align:left;
+    }
+/*end \form css*/
+
+/* back to top*/
+/*#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    border-radius: 100%;
+}*/

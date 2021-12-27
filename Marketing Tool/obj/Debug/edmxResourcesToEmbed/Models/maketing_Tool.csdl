@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Marketing_ToolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin_tbl">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="A_NIC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="A_Dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="A_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="A_ContactNumber" Type="Int32" Nullable="false" />
+    <Property Name="A_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="A_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Marketer_tbl" Relationship="Self.FK_Marketer_tbl" FromRole="Admin_tbl" ToRole="Marketer_tbl" />
+    <NavigationProperty Name="Student_tbl" Relationship="Self.FK_Student_tbl" FromRole="Admin_tbl" ToRole="Student_tbl" />
+    <NavigationProperty Name="Category_tbl" Relationship="Self.FK1_Category_tbl" FromRole="Admin_tbl" ToRole="Category_tbl" />
+  </EntityType>
+  <EntityType Name="Category_tbl">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoryType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="MarketerID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Admin_tbl" Relationship="Self.FK1_Category_tbl" FromRole="Category_tbl" ToRole="Admin_tbl" />
+    <NavigationProperty Name="Marketer_tbl" Relationship="Self.FK2_Category_tbl" FromRole="Category_tbl" ToRole="Marketer_tbl" />
+  </EntityType>
+  <EntityType Name="Marketer_tbl">
+    <Key>
+      <PropertyRef Name="MarketerID" />
+    </Key>
+    <Property Name="MarketerID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MarketerName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MarketerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="M_NIC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="M_Dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="M_Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="M_ContactNumber" Type="Int32" Nullable="false" />
+    <Property Name="M_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="M_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Admin_tbl" Relationship="Self.FK_Marketer_tbl" FromRole="Marketer_tbl" ToRole="Admin_tbl" />
+    <NavigationProperty Name="Category_tbl" Relationship="Self.FK2_Category_tbl" FromRole="Marketer_tbl" ToRole="Category_tbl" />
+  </EntityType>
+  <EntityType Name="Student_category">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="StudentID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoryID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student_marketer">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="MarketerID" />
+    </Key>
+    <Property Name="StudentID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MarketerID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student_tbl">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StudentName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StudentEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NIC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Addresss" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactNumber" Type="Int32" Nullable="false" />
+    <Property Name="Category" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Response" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="comment" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="AdminID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Comment1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Admin_tbl" Relationship="Self.FK_Student_tbl" FromRole="Student_tbl" ToRole="Admin_tbl" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Users_tbl">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Re_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Marketer_tbl">
+    <End Role="Admin_tbl" Type="Self.Admin_tbl" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Marketer_tbl" Type="Self.Marketer_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_tbl">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Marketer_tbl">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_tbl">
+    <End Role="Admin_tbl" Type="Self.Admin_tbl" Multiplicity="0..1" />
+    <End Role="Student_tbl" Type="Self.Student_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_tbl">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Student_tbl">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK1_Category_tbl">
+    <End Role="Admin_tbl" Type="Self.Admin_tbl" Multiplicity="0..1" />
+    <End Role="Category_tbl" Type="Self.Category_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_tbl">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Category_tbl">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK2_Category_tbl">
+    <End Role="Marketer_tbl" Type="Self.Marketer_tbl" Multiplicity="0..1" />
+    <End Role="Category_tbl" Type="Self.Category_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marketer_tbl">
+        <PropertyRef Name="MarketerID" />
+      </Principal>
+      <Dependent Role="Category_tbl">
+        <PropertyRef Name="MarketerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Marketing_ToolEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admin_tbl" EntityType="Self.Admin_tbl" />
+    <EntitySet Name="Category_tbl" EntityType="Self.Category_tbl" />
+    <EntitySet Name="Marketer_tbl" EntityType="Self.Marketer_tbl" />
+    <EntitySet Name="Student_category" EntityType="Self.Student_category" />
+    <EntitySet Name="Student_marketer" EntityType="Self.Student_marketer" />
+    <EntitySet Name="Student_tbl" EntityType="Self.Student_tbl" />
+    <EntitySet Name="Users_tbl" EntityType="Self.Users_tbl" />
+    <AssociationSet Name="FK_Marketer_tbl" Association="Self.FK_Marketer_tbl">
+      <End Role="Admin_tbl" EntitySet="Admin_tbl" />
+      <End Role="Marketer_tbl" EntitySet="Marketer_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_tbl" Association="Self.FK_Student_tbl">
+      <End Role="Admin_tbl" EntitySet="Admin_tbl" />
+      <End Role="Student_tbl" EntitySet="Student_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK1_Category_tbl" Association="Self.FK1_Category_tbl">
+      <End Role="Admin_tbl" EntitySet="Admin_tbl" />
+      <End Role="Category_tbl" EntitySet="Category_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK2_Category_tbl" Association="Self.FK2_Category_tbl">
+      <End Role="Marketer_tbl" EntitySet="Marketer_tbl" />
+      <End Role="Category_tbl" EntitySet="Category_tbl" />
+    </AssociationSet>
+    <EntitySet Name="CategoryLists" EntityType="Marketing_ToolModel.CategoryList" />
+  </EntityContainer>
+  <EntityType Name="CategoryList">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="CategoryType" />
+    </Key>
+    <Property Name="CategoryID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CategoryType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

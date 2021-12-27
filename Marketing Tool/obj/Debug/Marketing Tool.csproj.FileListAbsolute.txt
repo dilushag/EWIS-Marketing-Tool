@@ -1,0 +1,82 @@
+D:\VS\Marketing Tool\Marketing Tool\bin\Marketing Tool.dll.config
+D:\VS\Marketing Tool\Marketing Tool\bin\Marketing Tool.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\Marketing Tool.pdb
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\csc.exe
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\csc.exe.config
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\csc.rsp
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\csi.exe
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\csi.exe.config
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\csi.rsp
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.Managed.Core.targets
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.AppContext.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Collections.Immutable.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Console.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Globalization.Calendars.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.IO.Compression.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.IO.FileSystem.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Net.Http.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Net.Sockets.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Reflection.Metadata.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.ValueTuple.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Xml.XmlDocument.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Xml.XPath.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\vbc.exe
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\vbc.exe.config
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\vbc.rsp
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\VBCSCompiler.exe
+D:\VS\Marketing Tool\Marketing Tool\bin\roslyn\VBCSCompiler.exe.config
+D:\VS\Marketing Tool\Marketing Tool\bin\Antlr3.Runtime.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\EntityFramework.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\EntityFramework.SqlServer.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\Microsoft.Web.Infrastructure.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\Newtonsoft.Json.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.Helpers.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.Mvc.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.Optimization.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.Razor.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.WebPages.Deployment.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.WebPages.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.WebPages.Razor.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\WebGrease.dll
+D:\VS\Marketing Tool\Marketing Tool\bin\EntityFramework.xml
+D:\VS\Marketing Tool\Marketing Tool\bin\EntityFramework.SqlServer.xml
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.Helpers.xml
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.Mvc.xml
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.Optimization.xml
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.Razor.xml
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.WebPages.xml
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.WebPages.Deployment.xml
+D:\VS\Marketing Tool\Marketing Tool\bin\System.Web.WebPages.Razor.xml
+D:\VS\Marketing Tool\Marketing Tool\bin\Newtonsoft.Json.xml
+D:\VS\Marketing Tool\Marketing Tool\bin\Antlr3.Runtime.pdb
+D:\VS\Marketing Tool\Marketing Tool\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\VS\Marketing Tool\Marketing Tool\obj\Debug\Marketing Tool.csproj.AssemblyReference.cache
+D:\VS\Marketing Tool\Marketing Tool\obj\Debug\Marketing Tool.csproj.CoreCompileInputs.cache
+D:\VS\Marketing Tool\Marketing Tool\obj\Debug\Marketing Tool.dll
+D:\VS\Marketing Tool\Marketing Tool\obj\Debug\Marketing Tool.pdb

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Marketing_ToolModelStoreContainer" CdmEntityContainer="Marketing_ToolEntities">
+    <EntitySetMapping Name="Admin_tbl">
+      <EntityTypeMapping TypeName="Marketing_ToolModel.Admin_tbl">
+        <MappingFragment StoreEntitySet="Admin_tbl">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+          <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+          <ScalarProperty Name="A_NIC" ColumnName="A_NIC" />
+          <ScalarProperty Name="A_Dob" ColumnName="A_Dob" />
+          <ScalarProperty Name="A_Address" ColumnName="A_Address" />
+          <ScalarProperty Name="A_ContactNumber" ColumnName="A_ContactNumber" />
+          <ScalarProperty Name="A_UserName" ColumnName="A_UserName" />
+          <ScalarProperty Name="A_Password" ColumnName="A_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category_tbl">
+      <EntityTypeMapping TypeName="Marketing_ToolModel.Category_tbl">
+        <MappingFragment StoreEntitySet="Category_tbl">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryType" ColumnName="CategoryType" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="MarketerID" ColumnName="MarketerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marketer_tbl">
+      <EntityTypeMapping TypeName="Marketing_ToolModel.Marketer_tbl">
+        <MappingFragment StoreEntitySet="Marketer_tbl">
+          <ScalarProperty Name="MarketerID" ColumnName="MarketerID" />
+          <ScalarProperty Name="MarketerName" ColumnName="MarketerName" />
+          <ScalarProperty Name="MarketerEmail" ColumnName="MarketerEmail" />
+          <ScalarProperty Name="M_NIC" ColumnName="M_NIC" />
+          <ScalarProperty Name="M_Dob" ColumnName="M_Dob" />
+          <ScalarProperty Name="M_Address" ColumnName="M_Address" />
+          <ScalarProperty Name="M_ContactNumber" ColumnName="M_ContactNumber" />
+          <ScalarProperty Name="M_UserName" ColumnName="M_UserName" />
+          <ScalarProperty Name="M_Password" ColumnName="M_Password" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_category">
+      <EntityTypeMapping TypeName="Marketing_ToolModel.Student_category">
+        <MappingFragment StoreEntitySet="Student_category">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_marketer">
+      <EntityTypeMapping TypeName="Marketing_ToolModel.Student_marketer">
+        <MappingFragment StoreEntitySet="Student_marketer">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="MarketerID" ColumnName="MarketerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student_tbl">
+      <EntityTypeMapping TypeName="Marketing_ToolModel.Student_tbl">
+        <MappingFragment StoreEntitySet="Student_tbl">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+          <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Addresss" ColumnName="Addresss" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users_tbl">
+      <EntityTypeMapping TypeName="Marketing_ToolModel.Users_tbl">
+        <MappingFragment StoreEntitySet="Users_tbl">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="User_Email" ColumnName="User_Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Re_Password" ColumnName="Re-Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84238b35690f41a2b95f30b09960df74" Name="Diagram1">
+        <EntityTypeShape EntityType="Marketing_ToolsModel.Category_tbl" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marketing_ToolsModel.Student_category" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marketing_ToolsModel.Student_tbl" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marketing_ToolsModel.Student_user" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Marketing_ToolsModel.Users_tbl" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="Marketing_ToolsModel.FK1_Category_tbl" ManuallyRouted="false" />
+        <AssociationConnector Association="Marketing_ToolsModel.FK_Student_tbl" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Marketing_ToolsModel.CategoryList" Width="1.5" PointX="5.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

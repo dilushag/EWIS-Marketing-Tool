@@ -1,0 +1,424 @@
+﻿@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    @*Required meta tags*@
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Marketing tool</title>
+    <link href="~/Styles/styles.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <!--table-->
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+
+
+</head>
+<body style="background-color: #D2D6E7">
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h5>MARKETING TOOL</h5>
+                <hr style="background-color:white; height:1px;" />
+            </div>
+            <ul class="list-unstyled components">
+               <li >
+                    <a href="@Url.Action("DashBoard")"><i class="fa fa-th-large" aria-hidden="true"></i> DASHBOARD</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("M_studentDetails")">  <i class="fa fa-address-card-o" aria-hidden="true"></i> STUDENT DETAILS</a>
+                </li>
+                <li >
+                    <a href="@Url.Action("ConfirmedStudents")"> <i class="fa fa-address-book-o" aria-hidden="true"></i> CONFIRMED STUDENT</a>
+                </li>
+                <li class="active" >
+                    <a href="@Url.Action("Student_Reports")"> <i class="fa fa-file-pdf-o" aria-hidden="true"></i>  STUDENT REPORT</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="content w-100">
+            <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #D2D6E7;">
+                <button type="button" id="sidebarCollapse" class="btn btn-info" style="background: #465987; color:#fff; ">
+                    <i class="fa fa-align-justify"></i> <span></span>
+                </button>
+                @*<a class="navbar-brand" href="#">Navbar</a>*@
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-align-justify"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item" style="padding-right:20px">
+                            <i class="fa fa-user-circle" aria-hidden="true" style="color:#465987;"> </i>
+                            @Html.ActionLink("Profile", "EditProfile", "Admin", new { id = "prof", style = "color: #465987" })
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Login","Login")" style="color: #465987"> <i class="fa fa-sign-out" aria-hidden="true" style="color: #465987;"></i>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div style="margin-left:10px;margin-top:15px;">
+                <h4 style="font-weight:800;">MONTHLY STUDENT DETAILS</h4>
+
+
+                <div class="d-flex justify-content-center">
+
+                    <div class="row ">
+
+                        <div class="col-lg-8 col-xs-4 my-auto">
+
+                            <div class="dropdown">
+                                <select class="form-control form-control" id="exampleFormControlSelect1">
+                                    <option>Select Category</option>
+                                    <option>JAVA</option>
+                                    <option>CPIT</option>
+                                    <option>MICROSOFT</option>
+                                    <option>CLUD COMPUTING</option>
+                                    <option>CADD</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4  col-xs-4 my-auto">
+                            <button type="button" class="btn dim_button create_new" id="searbtn" style=" font-size: 12px; background-color: #465987; color: #fff ">SEARCH</button>
+
+                        </div>
+
+                    </div>
+                </div>
+                <br />
+                <!-- Tables-->
+
+                <div style="margin-left: 10px; margin-right: 10px; margin-top: 15px;">
+                    <table class="table table-sm table-striped table-bordered table-hover table-condensed  dt-responsive nowrap table-responsive" id="example">
+                        <thead style="background: #5fa5d3; margin-top: 15px;">
+                            <tr>
+                                <th style="width:220px;">Student ID</th>
+                                <th style="width:220px;">Name</th>
+                                <th style="width:220px;">Category</th>
+                                <th style="width:220px;">Response</th>
+                                <th style="width:220px;">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>STU001</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>7/5/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU002</td>
+                                <td>Winter</td>
+                                <td>CPIT</td>
+                                <td> Not Confirmed</td>
+                                <td>10/6/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU003</td>
+                                <td>cox</td>
+                                <td>java</td>
+                                <td> Not Confirmed</td>
+                                <td>6/10/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU004</td>
+                                <td>nick</td>
+                                <td>CPIT</td>
+                                <td> Not Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU005</td>
+                                <td>ashy</td>
+                                <td>CPIT</td>
+                                <td> Not Confirmed</td>
+                                <td>1/11/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU006</td>
+                                <td>mick</td>
+                                <td>CPIT</td>
+                                <td> Confirmed</td>
+                                <td>2/4/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU007</td>
+                                <td>mark</td>
+                                <td>CPIT</td>
+                                <td> Not Confirmed</td>
+                                <td>2/6/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU008</td>
+                                <td>jae</td>
+                                <td>CPIT</td>
+                                <td> Not Confirmed</td>
+                                <td>2/10/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU009</td>
+                                <td>jenny</td>
+                                <td>CPIT</td>
+                                <td> Not Confirmed</td>
+                                <td>25/7/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU010</td>
+                                <td>potter</td>
+                                <td>CPIT</td>
+                                <td> Not Confirmed</td>
+                                <td>25/5/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU011</td>
+                                <td>ron</td>
+                                <td>CPIT</td>
+                                <td> Not Confirmed</td>
+                                <td>24/9/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU012</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU013</td>
+                                <td>susy</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/10/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU014</td>
+                                <td>peter</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>8/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU015</td>
+                                <td>momo</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>2/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                            <tr>
+                                <td>STU016</td>
+                                <td>Nixon</td>
+                                <td>Java</td>
+                                <td>Confirmed</td>
+                                <td>25/1/2021</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+
+                <!-- Enad of table-->
+                <!-- Back to top button -->
+                <button type="button" class="btn btn-default btn-floating btn-lg" id="btn-back-to-top" style="background-color: #465987; color: white;position:fixed;bottom:20px;right:20px;border-radius:100% ">
+                    <i class="fas fa-arrow-up"></i>
+
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    <footer>
+        <div class="footer-bottom">
+            <p style="color: #465987; text-align: center; font-size: 15px;">&copy; @DateTime.Now.Year -EWIS. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    @*Optional JavaScript
+        jQuery first, then Popper.js, then Bootstrap JS*@
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!--Report-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.colVis.min.js"></script>
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href=" https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href=" https://cdn.datatables.net/buttons/2.0.1/css/buttons.bootstrap4.min.css">
+
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+
+        /*Table script*/
+        function queryParams() {
+            return {
+                type: 'owner',
+                sort: 'updated',
+                direction: 'desc',
+                per_page: 100,
+                page: 1
+            };
+        }
+
+        //back to top
+
+        //Get the button
+        let mybutton = document.getElementById("btn-back-to-top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (
+                document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20
+            ) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.addEventListener("click", backToTop);
+
+        function backToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        //report
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                lengthChange: false,
+                buttons: ['excel', 'pdf'/*, 'colvis'*/]
+            });
+            table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6:eq(0)');
+        });
+    </script>
+
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    @*<link href="~/Styles/AdminStyleSheet.css" rel="stylesheet" />*@
+
+
+</body>
+</html>

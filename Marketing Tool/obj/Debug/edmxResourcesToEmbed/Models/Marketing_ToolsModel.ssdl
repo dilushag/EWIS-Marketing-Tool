@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Marketing_ToolsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category_tbl">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CategoryType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Student_category">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="StudentID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CategoryID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student_tbl">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="StudentName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="StudentEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NIC" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Dob" Type="date" Nullable="false" />
+    <Property Name="Addresss" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactNumber" Type="int" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Action" Type="varchar" MaxLength="50" />
+    <Property Name="Response" Type="varchar" MaxLength="20" />
+    <Property Name="comment1" Type="varchar" MaxLength="200" />
+    <Property Name="comment2" Type="varchar" MaxLength="200" />
+    <Property Name="Date" Type="date" />
+    <Property Name="UserID" Type="varchar" MaxLength="30" />
+    <Property Name="NextCallingDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Student_user">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="StudentID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users_tbl">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="UserType" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="FullName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="UserEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NIC" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Dob" Type="date" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactNumber" Type="int" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Marketing_Tools.dbo.CategoryList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CategoryList">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="CategoryType" />
+    </Key>
+    <Property Name="CategoryID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CategoryType" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Student_tbl">
+    <End Role="Users_tbl" Type="Self.Users_tbl" Multiplicity="0..1" />
+    <End Role="Student_tbl" Type="Self.Student_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users_tbl">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Student_tbl">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK1_Category_tbl">
+    <End Role="Users_tbl" Type="Self.Users_tbl" Multiplicity="0..1" />
+    <End Role="Category_tbl" Type="Self.Category_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users_tbl">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Category_tbl">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Marketing_ToolsModelStoreContainer">
+    <EntitySet Name="Category_tbl" EntityType="Self.Category_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_category" EntityType="Self.Student_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_tbl" EntityType="Self.Student_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_user" EntityType="Self.Student_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users_tbl" EntityType="Self.Users_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CategoryList" EntityType="Self.CategoryList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CategoryList].[CategoryID] AS [CategoryID], 
+    [CategoryList].[CategoryType] AS [CategoryType]
+    FROM [dbo].[CategoryList] AS [CategoryList]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Student_tbl" Association="Self.FK_Student_tbl">
+      <End Role="Users_tbl" EntitySet="Users_tbl" />
+      <End Role="Student_tbl" EntitySet="Student_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK1_Category_tbl" Association="Self.FK1_Category_tbl">
+      <End Role="Users_tbl" EntitySet="Users_tbl" />
+      <End Role="Category_tbl" EntitySet="Category_tbl" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

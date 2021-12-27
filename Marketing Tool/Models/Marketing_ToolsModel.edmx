@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Marketing_ToolsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category_tbl">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CategoryType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Student_category">
+          <Key>
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="StudentID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CategoryID" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student_tbl">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="StudentName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="StudentEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NIC" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Dob" Type="date" Nullable="false" />
+          <Property Name="Addresss" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContactNumber" Type="int" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Action" Type="varchar" MaxLength="50" />
+          <Property Name="Response" Type="varchar" MaxLength="20" />
+          <Property Name="comment1" Type="varchar" MaxLength="200" />
+          <Property Name="comment2" Type="varchar" MaxLength="200" />
+          <Property Name="Date" Type="date" />
+          <Property Name="UserID" Type="varchar" MaxLength="30" />
+          <Property Name="NextCallingDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Student_user">
+          <Key>
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="StudentID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users_tbl">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="UserType" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="UserEmail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NIC" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Dob" Type="date" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ContactNumber" Type="int" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Marketing_Tools.dbo.CategoryList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CategoryList">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="CategoryType" />
+          </Key>
+          <Property Name="CategoryID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CategoryType" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Student_tbl">
+          <End Role="Users_tbl" Type="Self.Users_tbl" Multiplicity="0..1" />
+          <End Role="Student_tbl" Type="Self.Student_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_tbl">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Student_tbl">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK1_Category_tbl">
+          <End Role="Users_tbl" Type="Self.Users_tbl" Multiplicity="0..1" />
+          <End Role="Category_tbl" Type="Self.Category_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_tbl">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Category_tbl">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Marketing_ToolsModelStoreContainer">
+          <EntitySet Name="Category_tbl" EntityType="Self.Category_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_category" EntityType="Self.Student_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_tbl" EntityType="Self.Student_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_user" EntityType="Self.Student_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users_tbl" EntityType="Self.Users_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryList" EntityType="Self.CategoryList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CategoryList].[CategoryID] AS [CategoryID], 
+    [CategoryList].[CategoryType] AS [CategoryType]
+    FROM [dbo].[CategoryList] AS [CategoryList]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Student_tbl" Association="Self.FK_Student_tbl">
+            <End Role="Users_tbl" EntitySet="Users_tbl" />
+            <End Role="Student_tbl" EntitySet="Student_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK1_Category_tbl" Association="Self.FK1_Category_tbl">
+            <End Role="Users_tbl" EntitySet="Users_tbl" />
+            <End Role="Category_tbl" EntitySet="Category_tbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Marketing_ToolsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category_tbl">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users_tbl" Relationship="Self.FK1_Category_tbl" FromRole="Category_tbl" ToRole="Users_tbl" />
+        </EntityType>
+        <EntityType Name="Student_category">
+          <Key>
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="StudentID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CategoryID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student_tbl">
+          <Key>
+            <PropertyRef Name="StudentID" />
+          </Key>
+          <Property Name="StudentID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StudentEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NIC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Addresss" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactNumber" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Response" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="comment1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="comment2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="UserID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users_tbl" Relationship="Self.FK_Student_tbl" FromRole="Student_tbl" ToRole="Users_tbl" />
+          <Property Name="NextCallingDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Student_user">
+          <Key>
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="StudentID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users_tbl">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserType" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NIC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactNumber" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Category_tbl" Relationship="Self.FK1_Category_tbl" FromRole="Users_tbl" ToRole="Category_tbl" />
+          <NavigationProperty Name="Student_tbl" Relationship="Self.FK_Student_tbl" FromRole="Users_tbl" ToRole="Student_tbl" />
+        </EntityType>
+        <Association Name="FK1_Category_tbl">
+          <End Role="Users_tbl" Type="Self.Users_tbl" Multiplicity="0..1" />
+          <End Role="Category_tbl" Type="Self.Category_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_tbl">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Category_tbl">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_tbl">
+          <End Role="Users_tbl" Type="Self.Users_tbl" Multiplicity="0..1" />
+          <End Role="Student_tbl" Type="Self.Student_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users_tbl">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Student_tbl">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Marketing_ToolsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Category_tbl" EntityType="Self.Category_tbl" />
+          <EntitySet Name="Student_category" EntityType="Self.Student_category" />
+          <EntitySet Name="Student_tbl" EntityType="Self.Student_tbl" />
+          <EntitySet Name="Student_user" EntityType="Self.Student_user" />
+          <EntitySet Name="Users_tbl" EntityType="Self.Users_tbl" />
+          <AssociationSet Name="FK1_Category_tbl" Association="Self.FK1_Category_tbl">
+            <End Role="Users_tbl" EntitySet="Users_tbl" />
+            <End Role="Category_tbl" EntitySet="Category_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_tbl" Association="Self.FK_Student_tbl">
+            <End Role="Users_tbl" EntitySet="Users_tbl" />
+            <End Role="Student_tbl" EntitySet="Student_tbl" />
+          </AssociationSet>
+          <EntitySet Name="CategoryLists" EntityType="Marketing_ToolsModel.CategoryList" />
+        </EntityContainer>
+        <EntityType Name="CategoryList">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="CategoryType" />
+          </Key>
+          <Property Name="CategoryID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Marketing_ToolsModelStoreContainer" CdmEntityContainer="Marketing_ToolsEntities">
+          <EntitySetMapping Name="Category_tbl">
+            <EntityTypeMapping TypeName="Marketing_ToolsModel.Category_tbl">
+              <MappingFragment StoreEntitySet="Category_tbl">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryType" ColumnName="CategoryType" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_category">
+            <EntityTypeMapping TypeName="Marketing_ToolsModel.Student_category">
+              <MappingFragment StoreEntitySet="Student_category">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_tbl">
+            <EntityTypeMapping TypeName="Marketing_ToolsModel.Student_tbl">
+              <MappingFragment StoreEntitySet="Student_tbl">
+                <ScalarProperty Name="NextCallingDate" ColumnName="NextCallingDate" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
+                <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Addresss" ColumnName="Addresss" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="comment1" ColumnName="comment1" />
+                <ScalarProperty Name="comment2" ColumnName="comment2" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_user">
+            <EntityTypeMapping TypeName="Marketing_ToolsModel.Student_user">
+              <MappingFragment StoreEntitySet="Student_user">
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users_tbl">
+            <EntityTypeMapping TypeName="Marketing_ToolsModel.Users_tbl">
+              <MappingFragment StoreEntitySet="Users_tbl">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="Dob" ColumnName="Dob" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryLists">
+            <EntityTypeMapping TypeName="Marketing_ToolsModel.CategoryList">
+              <MappingFragment StoreEntitySet="CategoryList">
+                <ScalarProperty Name="CategoryType" ColumnName="CategoryType" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

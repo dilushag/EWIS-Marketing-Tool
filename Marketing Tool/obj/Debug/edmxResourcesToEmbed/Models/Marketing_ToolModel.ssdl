@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Marketing_ToolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin_tbl">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="AdminName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="AdminEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="A_NIC" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="A_Dob" Type="date" Nullable="false" />
+    <Property Name="A_Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="A_ContactNumber" Type="int" Nullable="false" />
+    <Property Name="A_UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="A_Password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category_tbl">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CategoryType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AdminID" Type="varchar" MaxLength="30" />
+    <Property Name="MarketerID" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Marketer_tbl">
+    <Key>
+      <PropertyRef Name="MarketerID" />
+    </Key>
+    <Property Name="MarketerID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MarketerName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="MarketerEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="M_NIC" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="M_Dob" Type="date" Nullable="false" />
+    <Property Name="M_Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="M_ContactNumber" Type="int" Nullable="false" />
+    <Property Name="M_UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="M_Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AdminID" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Student_category">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="StudentID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CategoryID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student_marketer">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="MarketerID" />
+    </Key>
+    <Property Name="StudentID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MarketerID" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student_tbl">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="StudentName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="StudentEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NIC" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Dob" Type="date" Nullable="false" />
+    <Property Name="Addresss" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ContactNumber" Type="int" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Action" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Response" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="comment" Type="varchar" MaxLength="200" />
+    <Property Name="AdminID" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Users_tbl">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="50" />
+    <Property Name="User_Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Re-Password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Marketer_tbl">
+    <End Role="Admin_tbl" Type="Self.Admin_tbl" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Marketer_tbl" Type="Self.Marketer_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_tbl">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Marketer_tbl">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_tbl">
+    <End Role="Admin_tbl" Type="Self.Admin_tbl" Multiplicity="0..1" />
+    <End Role="Student_tbl" Type="Self.Student_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_tbl">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Student_tbl">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK1_Category_tbl">
+    <End Role="Admin_tbl" Type="Self.Admin_tbl" Multiplicity="0..1" />
+    <End Role="Category_tbl" Type="Self.Category_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admin_tbl">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Category_tbl">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK2_Category_tbl">
+    <End Role="Marketer_tbl" Type="Self.Marketer_tbl" Multiplicity="0..1" />
+    <End Role="Category_tbl" Type="Self.Category_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marketer_tbl">
+        <PropertyRef Name="MarketerID" />
+      </Principal>
+      <Dependent Role="Category_tbl">
+        <PropertyRef Name="MarketerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Marketing_ToolModelStoreContainer">
+    <EntitySet Name="Admin_tbl" EntityType="Self.Admin_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category_tbl" EntityType="Self.Category_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marketer_tbl" EntityType="Self.Marketer_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_category" EntityType="Self.Student_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_marketer" EntityType="Self.Student_marketer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_tbl" EntityType="Self.Student_tbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users_tbl" EntityType="Self.Users_tbl" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Marketer_tbl" Association="Self.FK_Marketer_tbl">
+      <End Role="Admin_tbl" EntitySet="Admin_tbl" />
+      <End Role="Marketer_tbl" EntitySet="Marketer_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_tbl" Association="Self.FK_Student_tbl">
+      <End Role="Admin_tbl" EntitySet="Admin_tbl" />
+      <End Role="Student_tbl" EntitySet="Student_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK1_Category_tbl" Association="Self.FK1_Category_tbl">
+      <End Role="Admin_tbl" EntitySet="Admin_tbl" />
+      <End Role="Category_tbl" EntitySet="Category_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK2_Category_tbl" Association="Self.FK2_Category_tbl">
+      <End Role="Marketer_tbl" EntitySet="Marketer_tbl" />
+      <End Role="Category_tbl" EntitySet="Category_tbl" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
